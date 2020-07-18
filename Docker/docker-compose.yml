@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8
+    container_name: db
+    ports:
+      - 3306:3306
+    environment:
+    - MYSQL_DATABASE=newbook
+    - MYSQL_USER=book
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_PASSWORD=root
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+  web-server:
+    image: bablushaw23/bookapp:latest
+    ports:
+      - 8080:8080
+    links:
+      - db:db
