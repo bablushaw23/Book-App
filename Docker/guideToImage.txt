@@ -1,0 +1,8 @@
+This is guide to build your own docker image of bookapp.
+You should have a war file named warfile.war inside a folder.
+That folder should only contain
+1. Dockerfile
+2. Warfile.war
+run "docker build -t bablushaw23/bookapp:latest . "(notice dot is to be given) inside same folder. If u change name, corresponding change is needed at docker-compose
+Your docker image will be ready.
+check by running docker images
